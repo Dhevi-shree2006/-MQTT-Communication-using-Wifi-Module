@@ -90,6 +90,31 @@ To control an electrical device remotely through a cloud platform using MQTT com
 #define BLYNK_TEMPLATE_NAME "ARDUINO LEDBLINK"
 #define BLYNK_AUTH_TOKEN "-0jzmjz_pAaRNTZSczXd1I3y91hO7OxU"
 
+#include <WiFiS3.h>
+#include <BlynkSimpleWifi.h>
+
+char ssid[] = "Thara";
+char pass[] = "9566370385";
+
+BLYNK_WRITE(V0) {
+  digitalWrite(LED_BUILTIN, param.asInt());
+}
+
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+}
+
+void loop() {
+  Blynk.run();
+}
+```
+## ORIGINAL CODE
+```
+#define BLYNK_TEMPLATE_ID "TMPL37YjFuOSC"
+#define BLYNK_TEMPLATE_NAME "ARDUINO LEDBLINK"
+#define BLYNK_AUTH_TOKEN "-0jzmjz_pAaRNTZSczXd1I3y91hO7OxU"
+
 #define BLYNK_PRINT Serial
 
 #include <WiFiS3.h>
